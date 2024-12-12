@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Navigation Bar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, #0078FF, #00C6FF);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .navbar .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar .menu a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .navbar .menu a:hover {
+      color: #FFD700;
+      transform: scale(1.1);
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      transition: transform 0.3s ease;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 70px;
+        right: 30px;
+        background: rgba(0, 120, 255, 0.9);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .menu.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+      }
+
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">MyLogo</div>
+    <nav class="menu">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      menu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
